@@ -5,7 +5,6 @@ function article_adapter(search_term){
     url: `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q="${search_term}"&fq=headline:${search_term}?&api-key=6c40f5b5259d4eb28e241c5b3aed4a75`
   }).done(function( data ) {
     var articles = data.response.docs
-    debugger;
     articles.forEach(function(article){
       var newDate = new Date(article.pub_date)
       var formattedDate = Date.prototype.toDateString.call(newDate)

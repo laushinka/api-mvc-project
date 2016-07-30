@@ -7,11 +7,9 @@ $(function(){
 //     // Append the images onto the page
 $('input:submit').on("click", function getAjax(){
       event.preventDefault();
-      debugger;
       var user_input = $('#street').val()
-      // var myRegEx = /\d+[ ](?:[A-Za-z0-9.-]+[ ]?)+(?:Avenue|Lane|Road|Boulevard|Drive|Street|Ave|Dr|Rd|Blvd|Ln|St)\.?/
-      // var streetName = myRegEx.exec(user_input)
-      var article_object = article_adapter(user_input);
+      var streetName = user_input.split(' ').slice(1,3).join(' ')
+      var article_object = article_adapter(streetName);
     })
   });
 
