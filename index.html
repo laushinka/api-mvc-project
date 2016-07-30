@@ -12,6 +12,9 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap"
   async defer></script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/models/article.js"></script>
+  <script src="scripts/models/location.js"></script>
+  <script src="scripts/services/address_field_extender.js"></script>
   <script src="lib/map.js"></script>
   <script src="scripts/adapters/article_adapter.js"></script>
 </head>
@@ -29,6 +32,10 @@
  </div>
    <div id="map"></div>
    <div id="results"></div>
+      <script id="location-template" type="text/x-handlebars-template">
+        <p>{{building}}</p>
+      </script>
+
        <script id="article-template" type="text/x-handlebars-template">
          {{#each articles as |article| }}
          <h2><a id="headline" href="{{article.url}}">{{article.headline}}</a></h2>

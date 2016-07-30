@@ -1,4 +1,4 @@
-const store={articles: []}
+const store={articles: [], locations: []}
 
 $(function(){
 //   // When the user clicks the submit button,
@@ -14,19 +14,6 @@ $('input:submit').on("click", function getAjax(){
     })
   });
 
-
-  function address_field_extender(str){
-    if(str.includes(" St")){
-      return str.replace(" St", " Street");
-    }
-    else if(str.includes(" Ave")){
-      return str.replace(" Ave", " Avenue");
-    }
-    else if(str.includes(" Pl")){
-      return str.replace(" Pl", " Place");
-    }
-  }
-
       function render(){
          let string = $('#article-template').html();
          let template = Handlebars.compile(string);
@@ -37,14 +24,10 @@ $('input:submit').on("click", function getAjax(){
     }
 
 
-class Article {
-  constructor(headline, teaser, date, url, search_term, image) {
-    this.headline = headline;
-    this.teaser = teaser;
-    this.date = date;
-    this.url = url;
-    this.image = image;
-    this.search_term = search_term;
-    store.articles.push(this)
-  }
-}
+    function location_render(){
+       let string = $('#location-template').html();
+       let template = Handlebars.compile(string);
+       var htmlString = template(store.locations[0])
+       debugger; 
+       $('#results').append(htmlString);
+     }

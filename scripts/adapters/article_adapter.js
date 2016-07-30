@@ -18,5 +18,6 @@ function article_adapter(search_term){
        }
     })
     render()
+    location_render()
   })
 }
