@@ -33,7 +33,10 @@
    <div id="map"></div>
    <div id="results"></div>
       <script id="location-template" type="text/x-handlebars-template">
-        <p>{{building}}</p>
+        <p>Search By:</p>
+        <li> <a href="#" data-repo="{{building}}" onclick="linked_article_adapter(this)">{{building}}</a></li>
+        <li> <a href="#" data-repo="{{state}}" onclick="linked_article_adapter(this)">{{state}}</a></li>
+        <li> <a href="#" data-repo="{{country}}" onclick="linked_article_adapter(this)">{{country}}</a></li>
       </script>
 
        <script id="article-template" type="text/x-handlebars-template">

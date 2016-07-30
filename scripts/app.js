@@ -28,6 +28,5 @@ $('input:submit').on("click", function getAjax(){
        let string = $('#location-template').html();
        let template = Handlebars.compile(string);
        var htmlString = template(store.locations[0])
-       debugger; 
-       $('#results').append(htmlString);
+       $('#results').prepend(htmlString);
      }
