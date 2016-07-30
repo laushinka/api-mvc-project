@@ -53,8 +53,8 @@
 
        <script id="article-template" type="text/x-handlebars-template">
          {{#each articles as |article| }}
-         <h2><a id="headline" href="{{article.url}}">{{article.headline}}</a></h2>
-         <h4>{{article.date}}</h4>
+         <h2>{{article.date}} | <a id="headline" href="{{article.url}}">{{article.headline}}</a></h2>
+         <!-- <h4>{{article.date}}</h4> -->
           {{#if article.image}}
          <img src="https://static01.nyt.com/{{article.image}}">
           {{/if}}
