@@ -7,7 +7,7 @@ $(function(){
 //     // Append the images onto the page
 $('input:submit').on("click", function getAjax(){
       event.preventDefault();
-      var user_input = $('#street').val()
+      var user_input = $('#location').val()
       if (user_input.split(" ").length > 2) {
         user_input = address_field_extender(user_input);
       }
