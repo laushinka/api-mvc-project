@@ -32,7 +32,7 @@ function linked_article_adapter(search_term){
     var articles = data.response.docs
     articles.forEach(function(article){
       var newDate = new Date(article.pub_date)
-      var formattedDate = Date.prototype.toDateString.call(newDate)
+      var formattedDate = Date.prototype.getFullYear.call(newDate)
        if(article.multimedia[0]){
         new Article(article.headline.main.split(";")[0], article.lead_paragraph,
         formattedDate, article.web_url, search_term, article.multimedia[0].url)
