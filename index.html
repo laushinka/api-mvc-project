@@ -11,12 +11,24 @@
     padding: 0;
   }
   #map {
-    height: 100%;
+    height:50%;
+    width: 50%;
+    padding: 10 px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #results{
+    font-size: 13px;
+    font-family: sans-serif;
+    width: 30%;
+    margin-left: 20px;
   }
 </style>
   <meta charset="UTF-8">
   <title>API MVC</title>
   <script src="lib/jquery-1.11.3.js"></script>
+  <script src="lib/handlebars.js"></script>
   <script src="scripts/app.js"></script>
   <!-- <script src="lib/map.js"></script> -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap" async defer> -->
@@ -32,6 +44,16 @@
      </div>
      <input type="submit">
    </form>
+   <div id="results"></div>
+        <script id="article-template" type="text/x-handlebars-template">
+          {{#each articles as |article| }}
+          <h2><a id="headline" href="{{article.url}}">{{article.headline}}</a></h2>
+          <h4>{{article.date}}</h4>
+          {{#if article.image}}
+          <img src="https://static01.nyt.com/{{article.image}}">
+          {{/if}}
+          {{/each}}
+        </script>
 
    <div id="map"></div>
    <script>

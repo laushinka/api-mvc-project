@@ -7,26 +7,30 @@ $(function(){
 //     // Append the images onto the page
 $('input:submit').on("click", function getAjax(){
       event.preventDefault();
-
       var user_input = $('#location').val()
-      article_adapter(user_input)
+      var article_object = article_adapter(user_input);
+    })
+  });
 
-      // var artist = data.artists.items[0]
-      // var artist_image = artist.images[0].url
-      // $('.images').append(`<img src=${artist_image}>`)
-      });
-    });
 
+
+      function render(){
+         let string = $('#article-template').html();
+         let template = Handlebars.compile(string);
+         var htmlString = template({articles: store.articles})
+         $('#results').empty();
+         $('#results').append(htmlString);
+    }
 
 
 class Article {
-  constructor(headline, teaser, date, url, image, search_term) {
+  constructor(headline, teaser, date, url, search_term, image) {
     this.headline = headline;
     this.teaser = teaser;
     this.date = date;
     this.url = url;
     this.image = image;
     this.search_term = search_term;
-    store.articles.push(this);
+    store.articles.push(this)
   }
 }
