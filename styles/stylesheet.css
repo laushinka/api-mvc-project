@@ -1,0 +1,20 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height:50%;
+  width: 50%;
+  padding: 10 px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#results{
+  font-size: 13px;
+  font-family: sans-serif;
+  width: 30%;
+  margin-left: 20px;
+  height: 100%;
+}
