@@ -7,13 +7,15 @@ function article_adapter(search_term){
     var articles = data.response.docs
     debugger;
     articles.forEach(function(article){
+      var newDate = new Date(article.pub_date)
+      var formattedDate = Date.prototype.toDateString.call(newDate)
        if(article.multimedia[0]){
         new Article(article.headline.main, article.lead_paragraph,
-        article.pub_date, article.web_url, search_term, article.multimedia[0].url)
+        formattedDate, article.web_url, search_term, article.multimedia[0].url)
        }
        else {
         new Article(article.headline.main, article.lead_paragraph,
-        article.pub_date, article.web_url, search_term)
+        formattedDate, article.web_url, search_term)
        }
     })
     render()

@@ -17,6 +17,13 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  #results{
+    font-size: 13px;
+    font-family: sans-serif;
+    width: 30%;
+    margin-left: 20px;
+  }
 </style>
   <meta charset="UTF-8">
   <title>API MVC</title>
@@ -40,9 +47,11 @@
    <div id="results"></div>
         <script id="article-template" type="text/x-handlebars-template">
           {{#each articles as |article| }}
-          <h2><a href="{{article.url}}">{{article.headline}}</a></h2>
+          <h2><a id="headline" href="{{article.url}}">{{article.headline}}</a></h2>
           <h4>{{article.date}}</h4>
+          {{#if article.image}}
           <img src="https://static01.nyt.com/{{article.image}}">
+          {{/if}}
           {{/each}}
         </script>
 
