@@ -6,7 +6,7 @@ html, body {
 
 
 #map {
-  height:60%;
+  height:80%;
   width: 60%;
   /*padding: 10 px;*/
   float: right;
@@ -23,8 +23,9 @@ html, body {
   float: left;
 }
 
-a:link {
+
+#results a:link {
     text-decoration: none;
     color: gray;
-    font-style: italic; 
+    font-style: italic;
 }

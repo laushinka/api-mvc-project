@@ -34,11 +34,11 @@ function linked_article_adapter(search_term){
       var newDate = new Date(article.pub_date)
       var formattedDate = Date.prototype.toDateString.call(newDate)
        if(article.multimedia[0]){
-        new Article(article.headline.main, article.lead_paragraph,
+        new Article(article.headline.main.split(";")[0], article.lead_paragraph,
         formattedDate, article.web_url, search_term, article.multimedia[0].url)
        }
        else {
-        new Article(article.headline.main, article.lead_paragraph,
+        new Article(article.headline.main.split(";")[0], article.lead_paragraph,
         formattedDate, article.web_url, search_term)
        }
     })
