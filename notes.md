@@ -5,4 +5,4 @@ TO DO LIST
 4. add article count
 5. fix styling of article output
 6. break out results listing in partial
-7. 
+7. have results rendered on marker click, not submit
