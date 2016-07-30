@@ -24,8 +24,8 @@
     <h1>What happend in my hood?</h1>
    <form action="">
      <div class='name'>
-       <label for="name">Enter an Address</label><br>
-       Location:<input id='location' class='input input_name' type="text" ><br>
+       <label for="name"></label><br>
+       <input id='location' class='input input_name' type="text" ><br>
        <!-- City:<input id='city' class='input input_name' type="text" ><br>
        Country:<input id='country' class='input input_name' type="text" ><br>-->
      </div>
@@ -55,8 +55,8 @@
 
        <script id="article-template" type="text/x-handlebars-template">
          {{#each articles as |article| }}
-         <h2><a id="headline" href="{{article.url}}">{{article.headline}}</a></h2>
-         <h4>{{article.date}}</h4>
+         <h2>{{article.date}} | <a id="headline" href="{{article.url}}">{{article.headline}}</a></h2>
+         <!-- <h4>{{article.date}}</h4> -->
           {{#if article.image}}
          <img src="https://static01.nyt.com/{{article.image}}">
           {{/if}}
