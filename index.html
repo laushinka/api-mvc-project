@@ -28,17 +28,27 @@
        <!-- City:<input id='city' class='input input_name' type="text" ><br>
        Country:<input id='country' class='input input_name' type="text" ><br>-->
      </div>
+     <div id="address_fields">
+     </div>
      <input type="submit">
    </form>
  </div>
    <div id="map"></div>
    <div id="results"></div>
       <script id="location-template" type="text/x-handlebars-template">
-        <p>Search By:</p>
-        <li> <a href="#" data-repo="{{building}}" onclick="linked_article_adapter(this)">{{building}}</a></li>
-        <li> <a href="#" data-repo="{{city}}" onclick="linked_article_adapter(this)">{{city}}</a></li>
-        <li> <a href="#" data-repo="{{state}}" onclick="linked_article_adapter(this)">{{state}}</a></li>
-        <li> <a href="#" data-repo="{{country}}" onclick="linked_article_adapter(this)">{{country}}</a></li>
+        <!-- <p>Search By:</p> -->
+        {{#if building}}
+          <a href="#" data-repo="{{building}}" onclick="linked_article_adapter(this)">{{building}}</a>
+        {{/if}}
+        {{#if city}}
+          <a href="#" data-repo="{{city}}" onclick="linked_article_adapter(this)">{{city}}</a>
+        {{/if}}
+        {{#if state}}
+         <a href="#" data-repo="{{state}}" onclick="linked_article_adapter(this)">{{state}}</a>
+        {{/if}}
+        {{#if country}}
+         <a href="#" data-repo="{{country}}" onclick="linked_article_adapter(this)">{{country}}</a>
+        {{/if}}
       </script>
 
        <script id="article-template" type="text/x-handlebars-template">

@@ -14,4 +14,7 @@ function address_field_extender(str){
   else if(str.includes(" Dr")){
     return str.replace(" Dr", " Drive");
   }
+  else if(str.includes(" Ln")){
+    return str.replace(" Ln", " Lane");
+  }
 }
