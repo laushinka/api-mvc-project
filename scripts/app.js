@@ -8,18 +8,29 @@ $(function(){
 $('input:submit').on("click", function getAjax(){
       event.preventDefault();
       var user_input = $('#street').val()
+      user_input = address_field_extender(user_input)
       var streetName = user_input.split(' ').slice(1).join(' ')
       var article_object = article_adapter(streetName);
     })
   });
 
 
+  function address_field_extender(str){
+    if(str.includes(" St")){
+      return str.replace(" St", " Street");
+    }
+    else if(str.includes(" Ave")){
+      return str.replace(" Ave", " Avenue");
+    }
+    else if(str.includes(" Pl")){
+      return str.replace(" Pl", " Place");
+    }
+  }
 
       function render(){
          let string = $('#article-template').html();
          let template = Handlebars.compile(string);
          var htmlString = template({articles: store.articles})
-         $('#results').empty();
          $('#results').append(htmlString);
     }
 
