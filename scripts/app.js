@@ -8,7 +8,7 @@ $(function(){
 $('input:submit').on("click", function getAjax(){
       event.preventDefault();
       var user_input = $('#street').val()
-      var streetName = user_input.split(' ').slice(1,3).join(' ')
+      var streetName = user_input.split(' ').slice(1).join(' ')
       var article_object = article_adapter(streetName);
     })
   });
