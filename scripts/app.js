@@ -31,6 +31,8 @@ $('input:submit').on("click", function getAjax(){
          let string = $('#article-template').html();
          let template = Handlebars.compile(string);
          var htmlString = template({articles: store.articles})
+         store.articles = []
+         $('#results').empty();
          $('#results').append(htmlString);
     }
 
