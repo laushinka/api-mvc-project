@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head
+<title>Simple Map</title>
+<meta name="viewport" content="initial-scale=1.0">
+<meta charset="utf-8">
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #map {
+    height: 100%;
+  }
+</style>
   <meta charset="UTF-8">
   <title>API MVC</title>
   <script src="lib/jquery-1.11.3.js"></script>
   <script src="scripts/app.js"></script>
-  <script src="lib/map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap" async defer>
+  <!-- <script src="lib/map.js"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap" async defer> -->
 </script>
   <script src="scripts/adapters/article_adapter.js"></script>
 </head>
 <body>
    <form action="">
      <div class='name '>
-       <label for="name">Enter an Address</label>
-       <input id='address_name' class='input input_name' type="text" >
-       <input id='location' class='input input_name' type="text" >
+       <label for="name">Enter an Address</label><br>
+       Street:<input id='address_name' class='input input_name' type="text" ><br>
+       City:<input id='location' class='input input_name' type="text" ><br>
      </div>
      <input type="submit">
    </form>
 
-   <h3>Map</h3>
    <div id="map"></div>
-   <div class="images">
-   </div>
+   <script>
+     var map;
+     function initMap() {
+       map = new google.maps.Map(document.getElementById('map'), {
+         center: {lat: -34.397, lng: 150.644},
+         zoom: 8
+       });
+     }
+   </script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap"
+   async defer></script>
 </body>
 </html>
