@@ -8,4 +8,10 @@ function address_field_extender(str){
   else if(str.includes(" Pl")){
     return str.replace(" Pl", " Place");
   }
-} 
+  else if(str.includes(" Rd")){
+    return str.replace(" Rd", " Road");
+  }
+  else if(str.includes(" Dr")){
+    return str.replace(" Dr", " Drive");
+  }
+}
