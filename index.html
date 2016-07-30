@@ -11,6 +11,7 @@
     padding: 0;
   }
   #map {
+<<<<<<< HEAD
     height:50%;
     width: 50%;
     padding: 10 px;
@@ -24,14 +25,24 @@
     font-family: sans-serif;
     width: 30%;
     margin-left: 20px;
+=======
+    height: 100%;
+>>>>>>> aaee6e3f3f72ebb0419b11dced241f99a661bec7
   }
 </style>
   <meta charset="UTF-8">
   <title>API MVC</title>
   <script src="lib/jquery-1.11.3.js"></script>
+<<<<<<< HEAD
   <script src="lib/handlebars.js"></script>
   <script src="scripts/app.js"></script>
   <!-- <script src="lib/map.js"></script> -->
+=======
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap"
+  async defer></script>
+  <script src="scripts/app.js"></script>
+  <script src="lib/map.js"></script>
+>>>>>>> aaee6e3f3f72ebb0419b11dced241f99a661bec7
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap" async defer> -->
 </script>
   <script src="scripts/adapters/article_adapter.js"></script>
@@ -40,9 +51,15 @@
    <form action="">
      <div class='name '>
        <label for="name">Enter an Address</label><br>
+<<<<<<< HEAD
        Street:<input id='address_name' class='input input_name' type="text" ><br>
        City:<input id='location' class='input input_name' type="text" ><br>
      </div>
+=======
+       Street:<input id='street' class='input input_name' type="text" ><br>
+       City:<input id='city' class='input input_name' type="text" ><br>
+       Country:<input id='country' class='input input_name' type="text" ><br></div>
+>>>>>>> aaee6e3f3f72ebb0419b11dced241f99a661bec7
      <input type="submit">
    </form>
    <div id="results"></div>
@@ -57,6 +74,7 @@
         </script>
 
    <div id="map"></div>
+<<<<<<< HEAD
    <script>
      var map;
      function initMap() {
@@ -68,5 +86,9 @@
    </script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap"
    async defer></script>
+=======
+
+
+>>>>>>> aaee6e3f3f72ebb0419b11dced241f99a661bec7
 </body>
 </html>
