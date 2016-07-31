@@ -6,7 +6,12 @@ class Article {
     this.url = url;
     this.image = image;
     this.search_term = search_term;
-    this.news_desk = news_desk
+    this.type = news_desk
     store.articles.push(this)
   }
+}
+
+function addToType(article) {
+  var typeName =  article.type
+  store.types[typeName].push(article)
 }

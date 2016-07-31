@@ -1,6 +1,7 @@
 class Type {
   constructor(name) {
     this.name = name
+    this.articles = []
     store.types.push(this)
   }
 }
