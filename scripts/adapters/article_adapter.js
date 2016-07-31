@@ -21,7 +21,6 @@ function article_adapter(search_term){
       var newArticle = new Article(article.headline.main.split(";")[0], article.lead_paragraph,
         formattedDate, article.web_url, search_term, article.news_desk)
         new Type(newArticle.type)
-        debugger
         addToType(newArticle)
 
 
@@ -58,7 +57,6 @@ function linked_article_adapter(search_term){
         var newArticle = new Article(article.headline.main.split(";")[0], article.lead_paragraph,
         formattedDate, article.web_url, search_term, article.news_desk)
         new Type(newArticle.type)
-        debugger
         addToType(newArticle)
 
       //  }
