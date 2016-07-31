@@ -9,12 +9,17 @@ function article_adapter(search_term){
       var newDate = new Date(article.pub_date)
       var formattedDate = Date.prototype.getFullYear.call(newDate)
        if(article.multimedia[0]){
+        newsDeskTagCreator(article.news_desk)
+        debugger
         new Article(article.headline.main.split(";")[0], article.lead_paragraph,
-        formattedDate, article.web_url, search_term, article.multimedia[0].url)
+        formattedDate, article.web_url, search_term, article.multimedia[0].url, article.news_desk)
+        newsDeskTagCreator(article.news_desk)
        }
        else {
+        newsDeskTagCreator(article.news_desk)
         new Article(article.headline.main.split(";")[0], article.lead_paragraph,
-        formattedDate, article.web_url, search_term)
+        formattedDate, article.web_url, search_term, article.news_desk)
+
        }
     })
     render()
@@ -31,15 +36,18 @@ function linked_article_adapter(search_term){
   }).done(function( data ) {
     var articles = data.response.docs
     articles.forEach(function(article){
+      debugger;
       var newDate = new Date(article.pub_date)
       var formattedDate = Date.prototype.getFullYear.call(newDate)
        if(article.multimedia[0]){
         new Article(article.headline.main.split(";")[0], article.lead_paragraph,
-        formattedDate, article.web_url, search_term, article.multimedia[0].url)
+        formattedDate, article.web_url, search_term, article.multimedia[0].url, article.news_desk)
+        newsDeskTagCreator(article.news_desk)
        }
        else {
         new Article(article.headline.main.split(";")[0], article.lead_paragraph,
-        formattedDate, article.web_url, search_term)
+        formattedDate, article.web_url, search_term, article.news_desk)
+        newsDeskTagCreator(article.news_desk)
        }
     })
     render()

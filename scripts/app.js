@@ -1,4 +1,4 @@
-const store={articles: [], locations: []}
+const store={articles: [], locations: [], types: []}
 
 $(function(){
 //   // When the user clicks the submit button,
