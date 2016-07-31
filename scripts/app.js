@@ -11,7 +11,7 @@ $('input:submit').on("click", function getAjax(){
       if (user_input.split(" ").length > 2) {
         user_input = address_field_extender(user_input);
       }
-      var streetName = user_input.split(' ').slice(1).join(' ')
+      var streetName = user_input.split(' ').join(' ');
       var article_object = article_adapter(streetName);
       setLocationToMap(); // Sets the given location to map. Function implemented in map.js
     })
