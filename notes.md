@@ -9,3 +9,4 @@ TO DO LIST
 8. have marker move when user enters search input
 9. have articles show up for non-US countries
 10. search article headlines or bodies
+11. add 
