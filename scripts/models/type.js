@@ -6,6 +6,8 @@ class Type {
   }
 }
 
+
+
   // function displayPreferences() {
   //   var types = this.types.forEach(t => t
   //   ).join(', ')
