@@ -13,6 +13,7 @@ $('input:submit').on("click", function getAjax(){
       }
       var streetName = user_input.split(' ').slice(1).join(' ')
       var article_object = article_adapter(streetName);
+      setLocationToMap(); // Sets the given location to map. Function implemented in map.js
     })
   });
 
