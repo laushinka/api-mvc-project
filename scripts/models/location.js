@@ -15,5 +15,7 @@ class Location {
      if (this.country=== " USA"){
        this.country = ""
      }
-  }
+
+
+   }
 }
