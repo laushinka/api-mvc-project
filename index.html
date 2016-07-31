@@ -41,13 +41,15 @@
    <div id="map"></div>
    <div id="results"></div>
    <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
+  <button onclick="myFunction()" class="dropbtn">Filter List</button>
+    <div id="myDropdown" class="dropdown-content">
+      <script id="dropdown-template" type="text/x-handlebars-template">
+        {{#each types as |type|}}
+        <a href= "#" onclick="list_filter(this)">{{type.name}}</a>
+      </script>
+
+    </div>
+
       <script id="location-template" type="text/x-handlebars-template">
         <!-- <p>Search By:</p> -->
         {{#if building}}
