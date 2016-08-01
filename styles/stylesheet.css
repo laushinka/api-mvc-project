@@ -13,6 +13,7 @@ body {
   width: 60%;
   /*padding: 10 px;*/
   float: right;
+  margin-top: 15px;
   /*margin-left: 10 px;
   margin-right: 100 px;*/
 }
@@ -75,3 +76,12 @@ body {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.input-group {
+  width: 500px;
+}
+
+#address_fields{
+  font-size: 16px;
+  text-align: center;
+}

@@ -5,7 +5,7 @@ $(function(){
 //     // Gather the user input from the textbox
 //     // Make the request and get back the json
 //     // Append the images onto the page
-$('input:submit').on("click", function getAjax(){
+$('#button').on("click", function getAjax(){
       event.preventDefault();
       var user_input = $('#location').val()
       if (user_input.split(" ").length > 2) {

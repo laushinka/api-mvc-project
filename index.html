@@ -37,13 +37,21 @@
    <form action="">
      <div class='name'>
        <label for="name"></label><br>
-       <input id='location' class='input input_name' type="text" ><br>
-       <!-- City:<input id='city' class='input input_name' type="text" ><br>
-       Country:<input id='country' class='input input_name' type="text" ><br>-->
+
+       <div class="col-lg-6">
+          <div class="input-group">
+            <input id='location' width: 500; class='form-control' placeholder="Enter a street and city" type="text" aria-describedby="basic-addon2">
+            <span class="input-group-btn">
+              <button id = 'button' class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div>
      </div>
+
      <div id="address_fields">
      </div>
-     <input type="submit">
+     <!-- <input type="submit"> -->
    </form>
  </div>
    <!-- <input id="pac-input" class="controls" type="text" placeholder="Search"> -->
@@ -71,7 +79,7 @@
       <script id="location-template" type="text/x-handlebars-template">
         <!-- <p>Search By:</p> -->
         {{#if building}}
-          <a href="#" data-repo="{{building}}" onclick="linked_article_adapter(this)">{{building}}</a>
+          <a href="#" data-repo="{{building}}" onclick="linked_article_adapter(this)">{{building}}&nbsp;&nbsp;&nbsp;&nbsp;</a>
         {{/if}}
         {{#if city}}
           <a href="#" data-repo="{{city}}" onclick="linked_article_adapter(this)">{{city}}</a>
