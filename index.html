@@ -23,17 +23,20 @@
   <script src="lib/news_desk_values_options.js"></script>
   <script src="scripts/adapters/article_adapter.js"></script>
 </head>
-<body>
-  <nav class="navbar navbar-default">
+<body background="styles/congruent_outline.png">
+  <!-- <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       Times and Place
     </div>
   </div>
-</nav>
+</nav> -->
 
   <div align= "center">
-    <h1>What happened in my hood?</h1>
+    <!-- <div class="times-and-place"> -->
+      <img id="times" src="styles/times-white.png"/>
+      <h1 id="and-place">and Place</h1>
+    <!-- </div> -->
    <form action="">
      <div class='name'>
        <label for="name"></label><br>
@@ -41,13 +44,13 @@
        <div class="col-lg-6">
           <div class="input-group">
             <input id='location' width: 500; class='form-control' placeholder="Enter a street and city" type="text" aria-describedby="basic-addon2">
-            <span class="input-group-btn">
-              <button id = 'button' class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div>
-     </div>
+          <span class="input-group-btn">
+            <button id = 'button' class="btn btn-default" type="button">Go!</button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div>
+  </div>
 
      <div id="address_fields">
      </div>
@@ -90,23 +93,19 @@
          <a href="#" data-repo="{{country}}" onclick="linked_article_adapter(this)">{{country}}</a>
         {{/if}}
       </script>
-      
+
    <script id="article-template" type="text/x-handlebars-template">
      {{#each articles as |article| }}
      <div class="panel panel-default">
-           <div class="panel-heading">
-             <span>
-               <h3 class="panel-title">
-                {{article.date}} |
-                <a id="headline" href="{{article.url}}">{{article.headline}}</a>
-               </h3>
-           </div>
-           <!-- <div class="panel-body">
-
-           </div> -->
+       <div class="panel-body">
+         <span>
+           <h3 class="panel-title">
+            {{article.date}} |
+            <a id="headline" href="{{article.url}}">{{article.headline}}</a>
+           </h3>
+       </div>
     </div> <!--panel default close-->
     {{/each}}
-
   </script>
       <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
