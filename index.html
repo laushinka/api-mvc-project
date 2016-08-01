@@ -16,6 +16,7 @@
   <script src="scripts/models/article.js"></script>
   <script src="scripts/models/location.js"></script>
   <script src="scripts/services/address_field_extender.js"></script>
+  <script src="scripts/services/filter_by_type.js"></script>
   <script src="lib/map.js"></script>
   <script src="scripts/services/news_desk_tag_creator.js"></script>
   <script src="scripts/models/type.js"></script>
@@ -49,17 +50,21 @@
    <div id="map"></div>
    <div id="results"></div>
    <div class="container">
+
+  <script id="dropdown-template" type="text/x-handlebars-template">
   <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Dropdown Example
     <span class="caret"></span></button>
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Filter 1</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Filter 2</a></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Filter 3</a></li>
-      <li role="presentation" class="divider"></li>
-      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All Results</a></li>
+      {{#each types as |type| }}
+        <a id="headline" onclick="filterByType(this)"><li>{{type.name}}</li></a>
+
+      {{/each}}
+       <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All Results</a></li> -->
     </ul>
-  </div>
+   </div>
+  </script>
+
 </div>
 
       <script id="location-template" type="text/x-handlebars-template">

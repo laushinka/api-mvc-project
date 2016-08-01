@@ -30,7 +30,7 @@ $('input:submit').on("click", function getAjax(){
        let string = $('#dropdown-template').html();
        let template = Handlebars.compile(string);
        var htmlString = template({types: store.types})
-       debugger
+       debugger;
       //  $('#results').empty();
        $('.dropdown').append(htmlString);
     }
@@ -53,11 +53,9 @@ $('input:submit').on("click", function getAjax(){
        $('#address_fields').append(htmlString);
      }
 
-
-
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+// function myFunction() {
+//     document.getElementById("myDropdown").classList.toggle("show");
+// }
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
