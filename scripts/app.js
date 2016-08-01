@@ -7,6 +7,7 @@ $(function(){
 //     // Append the images onto the page
 $('#button').on("click", function getAjax(){
       event.preventDefault();
+      store.types = []
       var user_input = $('#location').val()
       if (user_input.split(" ").length > 2) {
         user_input = address_field_extender(user_input);
@@ -28,12 +29,10 @@ $('#button').on("click", function getAjax(){
       var streetName = user_input
     }
 
-
-      debugger;
-
       // .join(' ');
       var article_object = article_adapter(streetName);
-      setLocationToMap(); // Sets the given location to map. Function implemented in map.js
+      setLocationToMap();
+   // Sets the given location to map. Function implemented in map.js
     })
   });
 
@@ -47,10 +46,12 @@ $('#button').on("click", function getAjax(){
     }
 
     function dropdown_render(){
-       let string = $('#dropdown-template').html();
-       let template = Handlebars.compile(string);
+       var stuff = $('#dropdown-template').html();
+       debugger;
+       var template = Handlebars.compile(stuff);
        var htmlString = template({types: store.types});
-       $('.dropdown').empty();
+       debugger;
+      $('.dropdown-menu').empty();
        $('.dropdown').append(htmlString);
     }
 
