@@ -12,8 +12,9 @@ function article_adapter(search_term){
         formattedDate, article.web_url, search_term, article.news_desk)
         addToType(newArticle)
         })
-    render()
-    location_render()
+    render();
+    location_render();
+    dropdown_render();
   })
 }
 
@@ -34,6 +35,7 @@ function linked_article_adapter(search_term){
       })
     render()
     location_render()
+    dropdown_render();
   })
 }
 
