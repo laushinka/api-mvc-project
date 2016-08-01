@@ -113,3 +113,37 @@ div#address_fields {
   font: white;
   position: absolute;
 }
+
+#timeline{
+  width: 300;
+  height: 600;
+  position: absolute;
+  margin-top: 80;
+  margin-left: 80;
+}
+
+
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+    color: black;
+}
+
+.axis path{
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+  color: black;
+
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+g.tick{
+  color: black;
+  fill: black:
+}
