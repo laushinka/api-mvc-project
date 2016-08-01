@@ -48,15 +48,19 @@
    <!-- <input id="pac-input" class="controls" type="text" placeholder="Search"> -->
    <div id="map"></div>
    <div id="results"></div>
-   <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Filter List</button>
-    <div id="myDropdown" class="dropdown-content">
-      <script id="dropdown-template" type="text/x-handlebars-template">
-        {{#each types as |type|}}
-        <a href= "#" onclick="list_filter(this)">{{type.name}}</a>
-      </script>
-
-    </div>
+   <div class="container">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Filter 1</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Filter 2</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Filter 3</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All Results</a></li>
+    </ul>
+  </div>
+</div>
 
       <script id="location-template" type="text/x-handlebars-template">
         <!-- <p>Search By:</p> -->
