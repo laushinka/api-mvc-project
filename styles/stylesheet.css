@@ -7,20 +7,25 @@ html, body {
   padding: 0
 }
 
-body {
-  background-image: url:("../styles/grey_wash_wall.png");
-}
-
 #times {
-  width: 20em;
+  width: 50em;
   height: auto;
   margin-top: 1em;
   display: inline-block;
   margin-right: 3em;
 }
 
-div.panel-body {
+div.panel.panel-default {
   background-color: white;
+  width: 40em;
+}
+
+div.panel-container {
+  margin-top: 2em;
+}
+
+div#address_fields {
+  margin-bottom: 2em;
 }
 
 #and-place {
@@ -34,12 +39,11 @@ div.panel-body {
 }
 
 #map {
-  margin-top: 1em;
   height:80%;
   width: 50%;
   /*padding: 10 px;*/
   float: right;
-  margin-top: 15px;
+  margin-top: 3px;
   /*margin-left: 10 px;
   margin-right: 100 px;*/
 }
@@ -52,7 +56,6 @@ div.panel-body {
   height: 100%;
   float: left;
 }
-
 
 #results a:link {
     text-decoration: none;
