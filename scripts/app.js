@@ -13,6 +13,7 @@ $('input:submit').on("click", function getAjax(){
       }
       var streetName = user_input.split(' ').join(' ');
       var article_object = article_adapter(streetName);
+      debugger;
       setLocationToMap(); // Sets the given location to map. Function implemented in map.js
     })
   });
@@ -21,8 +22,8 @@ $('input:submit').on("click", function getAjax(){
          let string = $('#article-template').html();
          let template = Handlebars.compile(string);
          var htmlString = template({articles: store.articles})
-        //  store.articles = []
-        //  $('#results').empty();
+         store.articles = []
+         $('#results').empty();
          $('#results').append(htmlString);
     }
 

@@ -1,8 +1,11 @@
 function filterByType(type){
+  // access the inner string
   var dropType = type.children[0].innerHTML;
+  // find the matching type
   function findByTypeName(type) {
     return type.name === dropType
   }
+  // find the corresponding article
   var articleArr = store.types.find(findByTypeName).articles;
 
   (function articleByTypeRender() {
