@@ -1,6 +1,9 @@
 html, body {
   height: 100%;
-  margin: 0;
+  /*margin: 0;*/
+  margin-right: 3em;
+  margin-left: 3em;
+  margin-bottom: 3em;
   padding: 0
 }
 
@@ -9,8 +12,9 @@ body {
 }
 
 #map {
+  margin-top: 1em;
   height:80%;
-  width: 60%;
+  width: 50%;
   /*padding: 10 px;*/
   float: right;
   /*margin-left: 10 px;
@@ -20,7 +24,7 @@ body {
 #results{
   font-size: 13px;
   font-family: sans-serif;
-  width: 30%;
+  width: 40%;
   margin-left: 20px;
   height: 100%;
   float: left;
