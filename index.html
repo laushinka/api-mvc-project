@@ -51,10 +51,10 @@
    <div id="results"></div>
    <div class="container">
   <div class="dropdown">
-  <script id="dropdown-template" type="text/x-handlebars-template">
-
     <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Dropdown Example
     <span class="caret"></span></button>
+  <script id="dropdown-template" type="text/x-handlebars-template">
+
     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
       {{#each types as |type| }}
         <a id="headline" onclick="filterByType(this)"><li>{{type.name}}</li></a>
