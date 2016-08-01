@@ -7,5 +7,13 @@ class Location {
     this.state = state;
     this.country = country;
     store.locations.push(this)
+
+    if (this.city === " New York"){
+       this.city = ""
+     }
+
+     if (this.country=== " USA"){
+       this.country = ""
+     }
   }
 }
