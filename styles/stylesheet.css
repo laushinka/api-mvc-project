@@ -11,6 +11,28 @@ body {
   background-image: url:("../styles/grey_wash_wall.png");
 }
 
+#times {
+  width: 20em;
+  height: auto;
+  margin-top: 1em;
+  display: inline-block;
+  margin-right: 3em;
+}
+
+div.panel-body {
+  background-color: white;
+}
+
+#and-place {
+  font-size: 5em;
+  color: white;
+  display: inline-block;
+  margin-top: 1em;
+}
+
+.times-and-place {
+}
+
 #map {
   margin-top: 1em;
   height:80%;
