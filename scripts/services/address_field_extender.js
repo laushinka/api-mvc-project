@@ -1,20 +1,44 @@
 function address_field_extender(str){
   if(str.includes(" St")){
+    if (str.includes(" Street") === false){
     return str.replace(" St", " Street");
   }
+  return str;
+  }
   else if(str.includes(" Ave")){
-    return str.replace(" Ave", " Avenue");
+    if (str.includes(" Avenue") === false){
+      return str.replace(" Ave", " Avenue");
+    }
+    return str;
   }
   else if(str.includes(" Pl")){
-    return str.replace(" Pl", " Place");
+    if (str.includes(" Place") === false){
+      return str.replace(" Pl", " Place");
+    }
+    return str;
   }
   else if(str.includes(" Rd")){
-    return str.replace(" Rd", " Road");
+    if (str.includes(" Road") === false){
+      return str.replace(" Rd", " Road");
+    }
+    return str;
   }
   else if(str.includes(" Dr")){
-    return str.replace(" Dr", " Drive");
+    if (str.includes(" Drive") === false){
+      return str.replace(" Dr", " Drive");
+    }
+    return str;
   }
   else if(str.includes(" Ln")){
-    return str.replace(" Ln", " Lane");
+    if (str.includes(" Lane") === false){
+      return str.replace(" Ln", " Lane");
+    }
+    return str;
+  }
+  else if(str.includes(" Blvd")){
+    if (str.includes(" Boulevard") === false){
+      return str.replace(" Blvd", " Boulevard");
+    }
+    return str;
   }
 }
