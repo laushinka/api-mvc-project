@@ -13,7 +13,6 @@ $('input:submit').on("click", function getAjax(){
       }
       var streetName = user_input.split(' ').join(' ');
       var article_object = article_adapter(streetName);
-      debugger;
       setLocationToMap(); // Sets the given location to map. Function implemented in map.js
     })
   });
@@ -31,18 +30,9 @@ $('input:submit').on("click", function getAjax(){
        let string = $('#dropdown-template').html();
        let template = Handlebars.compile(string);
        var htmlString = template({types: store.types});
-      //  $('#results').empty();
+      //  $('.dropdown').empty();
        $('.dropdown').append(htmlString);
     }
-  //      function ListsController() {
-  //  var title = $("[name= 'list_title']").val()
-  //  var newList = new List(title)
-  //  $('#lists').append(`<h2><div class="list"><button id ='task ${newList.id}' class="destroy_task">x</button> ${title} <ul id=${newList.id}></ul></div></h2>`)
-   //
-  //  $("[name='select_list']").append(`<option value =${newList.id}> ${title}</option>`)
-  // <label for="select_list">Select List:</label>
-  //      <select id="select_list" name="select_list"></select>
-
 
 
     function location_render(){

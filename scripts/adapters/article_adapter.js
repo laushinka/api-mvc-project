@@ -47,6 +47,7 @@ function addToType(newArticle) {
   }
   var type = store.types.find(findByTypeName)
   if (type) {
+    newArticle.type
     type.articles.push(newArticle)
   } else {
     new Type(newArticle.type)
@@ -54,16 +55,3 @@ function addToType(newArticle) {
     type.articles.push(newArticle)
   }
 }
-
-
-
-
-
-// function checkTypeValue(news_desk) {
-//   if (news_desk === null || news_desk === false){
-//     return "Unlisted"
-//   }
-//   else {
-//     return news_desk
-//   }
-// }
