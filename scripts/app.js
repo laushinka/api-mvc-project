@@ -29,8 +29,7 @@ $('input:submit').on("click", function getAjax(){
     function dropdown_render(){
        let string = $('#dropdown-template').html();
        let template = Handlebars.compile(string);
-       var htmlString = template({types: store.types})
-       debugger;
+       var htmlString = template({types: store.types});
       //  $('#results').empty();
        $('.dropdown').append(htmlString);
     }
