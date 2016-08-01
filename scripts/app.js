@@ -33,6 +33,7 @@ $('input:submit').on("click", function getAjax(){
        debugger
       //  $('#results').empty();
        $('.dropdown').append(htmlString);
+    }
   //      function ListsController() {
   //  var title = $("[name= 'list_title']").val()
   //  var newList = new List(title)
@@ -41,9 +42,6 @@ $('input:submit').on("click", function getAjax(){
   //  $("[name='select_list']").append(`<option value =${newList.id}> ${title}</option>`)
   // <label for="select_list">Select List:</label>
   //      <select id="select_list" name="select_list"></select>
- }
-
-  }
 
 
 
