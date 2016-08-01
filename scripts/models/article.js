@@ -16,7 +16,7 @@ class Article {
 }
 
 function checkTypeValue(news_desk) {
-  if (typeof news_desk === "string"){
+  if ( (typeof news_desk === "string" ) && (news_desk !== "None" ) ){
     return news_desk
   }
   else {

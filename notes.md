@@ -12,3 +12,8 @@ TO DO LIST
 11. break out code from adapter
 12. make sure no duplicate values for types!
 13. drop down menu selector that filters types
+
+DROP DOWN TO DO
+--1. button has to exist
+--2. button knows about article types present (store.types)
+--3. 
