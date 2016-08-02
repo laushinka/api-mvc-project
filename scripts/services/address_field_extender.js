@@ -10,7 +10,8 @@ function addressFieldExtender(str){
 }
 
 function addressFieldReplacement(str, shortName, longName){
-  if(str.includes(shortName)){
+  /////////////////// if && statement
+  if(str.includes(shortName)){ 
     if(str.includes(longName) === false){
       return str.replace(shortName, longName);
     }

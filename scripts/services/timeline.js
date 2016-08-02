@@ -1,6 +1,8 @@
 function timeline(){
   $('#timeline').empty();
 
+
+///////////////////// move styling to a styles/bootstrap file
   var w = 1100;
   var h = 500;
   var padding = 40;

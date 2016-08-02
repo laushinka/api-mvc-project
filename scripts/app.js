@@ -9,6 +9,7 @@ $('#button').on("click", function getAjax(){
       event.preventDefault();
       store.types = []
       var user_input = $('#location').val()
+      ///////////////// move the if statements into separate functions
       if (user_input.split(" ").length > 2) {
         user_input = addressFieldExtender(user_input);
       }

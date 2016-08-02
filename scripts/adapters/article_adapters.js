@@ -41,6 +41,7 @@ function addToType(newArticle) {
   function findByTypeName(type) {
     return type.name === newName
   }
+  /////////////////// could be broken out into new function
   var type = store.types.find(findByTypeName)
   if (type) {
     newArticle.type
@@ -52,6 +53,7 @@ function addToType(newArticle) {
   }
 }
 
+//////////////////// can this be moved to the app.js? 
 function renderAll(){
   timeline();
   render();
