@@ -22,15 +22,17 @@ html, body {
 
 #menu1 {
   display: none;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
 #timeline-menu {
   display: none;
   width: 120px;
   float: left;
-  margin-left: 38px;
-  margin-right: 3px;
-  background-color: #801919;
+  margin-left: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 div.panel.panel-default {
