@@ -21,7 +21,7 @@
   <script src="scripts/services/timeline.js"></script>
   <script src="lib/map.js"></script>
   <script src="scripts/models/type.js"></script>
-  <script src="scripts/adapters/article_adapter.js"></script>
+  <script src="scripts/adapters/article_adapters.js"></script>
 </head>
 <body background="styles/congruent_outline.png">
   <!-- <nav class="navbar navbar-default">
@@ -90,16 +90,16 @@
       <script id="location-template" type="text/x-handlebars-template">
         <!-- <p>Search By:</p> -->
         {{#if building}}
-          <a href="#" data-repo="{{building}}" onclick="linked_article_adapter(this)">{{building}}</a>
+          <a href="#" data-repo="{{building}}" onclick="linkedArticleAdapter(this)">{{building}}</a>
         {{/if}}
         {{#if city}}
-          <a href="#" data-repo="{{city}}" onclick="linked_article_adapter(this)">{{city}}</a>
+          <a href="#" data-repo="{{city}}" onclick="linkedArticleAdapter(this)">{{city}}</a>
         {{/if}}
         {{#if state}}
-         <a href="#" data-repo="{{state}}" onclick="linked_article_adapter(this)">{{state}}</a>
+         <a href="#" data-repo="{{state}}" onclick="linkedArticleAdapter(this)">{{state}}</a>
         {{/if}}
         {{#if country}}
-         <a href="#" data-repo="{{country}}" onclick="linked_article_adapter(this)">{{country}}</a>
+         <a href="#" data-repo="{{country}}" onclick="linkedArticleAdapter(this)">{{country}}</a>
         {{/if}}
       </script>
 </div>

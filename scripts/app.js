@@ -10,7 +10,6 @@ $('#button').on("click", function getAjax(){
       store.types = []
       var user_input = $('#location').val()
       if (user_input.split(" ").length > 2) {
-        debugger;
         user_input = addressFieldExtender(user_input);
       }
 
@@ -30,7 +29,7 @@ $('#button').on("click", function getAjax(){
     }
 
       // .join(' ');
-      var article_object = article_adapter(streetName);
+      var article_object = submittedArticleAdapter(streetName);
       setLocationToMap();
    // Sets the given location to map. Function implemented in map.js
       $("#menu1").css("display", "block");
