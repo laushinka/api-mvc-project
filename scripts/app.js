@@ -10,7 +10,7 @@ $('#button').on("click", function getAjax(){
       store.types = []
       var user_input = $('#location').val()
       if (user_input.split(" ").length > 2) {
-        debugger; 
+        debugger;
         user_input = address_field_extender(user_input);
       }
 
@@ -35,6 +35,7 @@ $('#button').on("click", function getAjax(){
    // Sets the given location to map. Function implemented in map.js
       $("#menu1").css("display", "block");
       $("#timeline-menu").css("display", "block");
+      $("#map").css("float", "right");
     })
   });
 
