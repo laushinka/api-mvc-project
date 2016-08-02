@@ -24,7 +24,7 @@ function linked_article_adapter(search_term){
     event.preventDefault();
   return $.ajax({
     method: "GET",
-    url: `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q="${search_term}"&fq=headline:${search_term}?&api-key=6c40f5b5259d4eb28e241c5b3aed4a75`
+    url: `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q="${search_term}"?&api-key=6c40f5b5259d4eb28e241c5b3aed4a75`
   }).done(function( data ) {
     var articles = data.response.docs
     articles.forEach(function(article){
@@ -34,8 +34,8 @@ function linked_article_adapter(search_term){
       formattedDate, article.web_url, search_term, article.news_desk)
       addToType(newArticle)
       })
-    render()
     timeline();
+    render()
     location_render()
     dropdown_render();
   })
