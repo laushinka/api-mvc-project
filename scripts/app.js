@@ -22,7 +22,7 @@ $('#button').on("click", function getAjax(){
     } else{
       var streetName = userInput
     }
-      var article_object = submittedArticleAdapter(streetName);
+      var articleObject = submittedArticleAdapter(streetName);
       setLocationToMap();
    // Sets the given location to map. Function implemented in map_adapter.js
       $("#menu1").css("display", "block");
