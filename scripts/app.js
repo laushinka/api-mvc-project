@@ -34,6 +34,7 @@ $('#button').on("click", function getAjax(){
       setLocationToMap();
    // Sets the given location to map. Function implemented in map.js
       $("#menu1").css("display", "block");
+      $("#timeline-menu").css("display", "block");
     })
   });
 
