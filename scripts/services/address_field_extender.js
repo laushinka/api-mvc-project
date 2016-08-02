@@ -1,49 +1,18 @@
-function address_field_extender(str){
-  if(str.includes(" St")){
-    if(str.includes(" Street") === false){
-      return str.replace(" St", " Street");
-    }
+function addressFieldExtender(str){
+  addressFieldReplacement(str, " St", " Street")
+  addressFieldReplacement(str, " Ave", " Avenue")
+  addressFieldReplacement(str, " Pl", " Place")
+  addressFieldReplacement(str, " Rd", " Road")
+  addressFieldReplacement(str, " Dr", " Drive")
+  addressFieldReplacement(str, " Ln", " Lane")
+  addressFieldReplacement(str, " Blvd", " Boulevard")
   return str;
-  }
-  else if(str.includes(" Ave")){
-    if (str.includes(" Avenue") === false){
-      return str.replace(" Ave", " Avenue");
+}
+
+function addressFieldReplacement(str, shortName, longName){
+  if(str.includes(shortName)){
+    if(str.includes(longName) === false){
+      return str.replace(shortName, longName);
     }
-    return str;
   }
-  else if(str.includes(" Pl")){
-    if (str.includes(" Place") === false){
-      return str.replace(" Pl", " Place");
-    }
-    return str;
-  }
-  else if(str.includes(" Rd")){
-    if(str.includes(" Road") === false){
-      return str.replace(" Rd", " Road");
-    }
-    return str;
-  }
-  else if(str.includes(" Dr")){
-    if(str.includes(" Drive") === false){
-      return str.replace(" Dr", " Drive");
-    }
-    return str;
-  }
-  else if(str.includes(" Ln")){
-    if (str.includes(" Lane") === false){
-      return str.replace(" Ln", " Lane");
-    }
-    return str;
-  }
-  else if(str.includes(" Blvd")){
-    if (str.includes(" Boulevard") === false){
-      return str.replace(" Blvd", " Boulevard");
-    }
-    return str;
-    if(str.includes(" Lane") === false){
-      return str.replace(" Ln", " Lane");
-    }
-    return str;
-  }
-  return str; 
 }

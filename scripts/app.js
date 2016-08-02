@@ -11,7 +11,7 @@ $('#button').on("click", function getAjax(){
       var user_input = $('#location').val()
       if (user_input.split(" ").length > 2) {
         debugger;
-        user_input = address_field_extender(user_input);
+        user_input = addressFieldExtender(user_input);
       }
 
       if(user_input.includes(",")){
