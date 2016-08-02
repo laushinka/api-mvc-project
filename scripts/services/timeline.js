@@ -32,7 +32,7 @@ function timeline(){
 				   .attr("font-size", "11px")
 				   .attr("font-weight", "bold")
 				   .attr("fill", "black")
-				   .html(`<a href=${d.url}>${d.headline}</a>`);
+				   .html(`<a target="_blank" href=${d.url}>${d.headline}</a>`);
 			   })
     var axis = d3.axisBottom(scale).tickFormat(d3.format("d"));
 
