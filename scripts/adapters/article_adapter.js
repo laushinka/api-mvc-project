@@ -12,6 +12,7 @@ function article_adapter(search_term){
         formattedDate, article.web_url, search_term, article.news_desk)
         addToType(newArticle)
         })
+    timeline();
     render();
     location_render();
     dropdown_render();
@@ -34,6 +35,7 @@ function linked_article_adapter(search_term){
       addToType(newArticle)
       })
     render()
+    timeline();
     location_render()
     dropdown_render();
   })

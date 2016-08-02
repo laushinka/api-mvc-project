@@ -47,10 +47,8 @@ $('#button').on("click", function getAjax(){
 
     function dropdown_render(){
        var stuff = $('#dropdown-template').html();
-       debugger;
        var template = Handlebars.compile(stuff);
        var htmlString = template({types: store.types});
-       debugger;
       $('.dropdown-menu').empty();
        $('.dropdown').append(htmlString);
     }
