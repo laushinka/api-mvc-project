@@ -7,12 +7,17 @@ html, body {
   padding: 0
 }
 
+#location {
+  float: center;
+}
+
 #times {
   width: 50em;
   height: auto;
   margin-top: 0.5em;
   display: inline-block;
   margin-right: 3em;
+  margin-bottom: 3em;
 }
 
 #menu1 {
@@ -21,9 +26,11 @@ html, body {
 
 #timeline-menu {
   display: none;
-  width: 150px;
+  width: 120px;
   float: left;
   margin-left: 38px;
+  margin-right: 3px;
+  background-color: #801919;
 }
 
 div.panel.panel-default {
@@ -53,6 +60,7 @@ div#address_fields {
   /*padding: 10 px;*/
   float: right;
   position: fixed;
+  margin-bottom: 300px;
 }
 
 #results{
@@ -119,14 +127,14 @@ div#address_fields {
 }
 
 #address_fields{
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   margin-top: 0.2em;
 }
 
 #address_fields a{
-  text-decoration: none;
-  color: white;
+  text-decoration: underline;
+  color: #D3D3D3;
 }
 
 #timeline{
