@@ -12,10 +12,7 @@ function article_adapter(search_term){
         formattedDate, article.web_url, search_term, article.news_desk)
         addToType(newArticle)
         })
-    timeline();
-    render();
-    location_render();
-    dropdown_render();
+    renderAll();
   })
 }
 
@@ -34,10 +31,7 @@ function linked_article_adapter(search_term){
       formattedDate, article.web_url, search_term, article.news_desk)
       addToType(newArticle)
       })
-    timeline();
-    render()
-    location_render()
-    dropdown_render();
+    renderAll(); 
   })
 }
 
@@ -56,4 +50,11 @@ function addToType(newArticle) {
     var type = store.types.find(findByTypeName)
     type.articles.push(newArticle)
   }
+}
+
+function renderAll(){
+  timeline();
+  render();
+  location_render();
+  dropdown_render();
 }
