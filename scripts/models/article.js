@@ -7,19 +7,13 @@ class Article {
     this.search_term = search_term;
     this.type = checkTypeValue(news_desk)
     store.articles.push(this)
-
-
-    // addToType(this)
   }
-
-
 }
 
 function checkTypeValue(news_desk) {
   if ( (typeof news_desk === "string" ) && (news_desk !== "None" ) ){
     return news_desk.replace("&", "and")
-  }
-  else {
+  } else {
     return "Unlisted"
   }
 }

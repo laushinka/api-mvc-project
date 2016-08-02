@@ -1,5 +1,4 @@
 class Location {
-  // addr_arr = ["43 Broad St", " New York", " NY 10004", " USA"]
   constructor(building, street, city, state, country) {
     this.building = building;
     this.street = street;
@@ -8,14 +7,19 @@ class Location {
     this.country = country;
     store.locations.push(this)
 
-    if (this.city === " New York"){
-       this.city = ""
-     }
+    preventUSADisplay(this)
+    preventNYCDisplay(this)
+   }
+}
 
-     if (this.country=== " USA"){
-       this.country = ""
-     }
+function preventUSADisplay (address) {
+  if (address.country=== " USA"){
+     address.country = ""
+   }
+}
 
-
+function preventNYCDisplay (address) {
+  if (address.city === " New York"){
+     address.city = ""
    }
 }
