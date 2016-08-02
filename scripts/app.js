@@ -10,9 +10,9 @@ $('#button').on("click", function getAjax(){
       store.types = []
       var user_input = $('#location').val()
       if (user_input.split(" ").length > 2) {
+        debugger; 
         user_input = address_field_extender(user_input);
       }
-
 
       if(user_input.includes(",")){
       var streetName = user_input.split(', ')[0]
@@ -42,7 +42,6 @@ $('#button').on("click", function getAjax(){
          let string = $('#article-template').html();
          let template = Handlebars.compile(string);
          var htmlString = template({articles: store.articles.sort(function(a, b){if(a.date > b.date){return 1;} if (a.date < b.date){return -1;}return 0})})
-         debugger;
          store.articles = []
          $('#results').empty();
          $('#results').append(htmlString);

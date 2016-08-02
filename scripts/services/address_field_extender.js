@@ -45,4 +45,5 @@ function address_field_extender(str){
     }
     return str;
   }
+  return str; 
 }
