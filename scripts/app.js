@@ -31,7 +31,7 @@ $('#button').on("click", function getAjax(){
       // .join(' ');
       var article_object = submittedArticleAdapter(streetName);
       setLocationToMap();
-   // Sets the given location to map. Function implemented in map.js
+   // Sets the given location to map. Function implemented in map_adapter.js
       $("#menu1").css("display", "block");
       $("#timeline-menu").css("display", "block");
       $("#map").css("float", "right");
@@ -72,7 +72,6 @@ $('#button').on("click", function getAjax(){
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
