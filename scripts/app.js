@@ -1,7 +1,6 @@
 const store={articles: [], locations: [], types: []}
 
 $(function(){
-
 $('#button').on("click", function (){
       event.preventDefault();
       store.types = []
@@ -11,5 +10,5 @@ $('#button').on("click", function (){
       submittedArticleAdapter(streetName);
       setLocationToMap();
       updateDisplay();
-    })
-  });
+  })
+});
