@@ -35,7 +35,7 @@ html, body {
 
 div.panel.panel-default {
   background-color: white;
-  width: 50em;
+  /*width: 50em;*/
   /*margin-top: 1em;*/
 }
 
@@ -66,9 +66,9 @@ div#address_fields {
 #results{
   font-size: 13px;
   font-family: sans-serif;
-  width: 40%;
-  margin-left: 20px;
-  height: 100%;
+  width: 40%
+  /*margin-left: 20px;*/
+  /*height: 100%;*/
   float: left;
 }
 
