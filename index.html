@@ -43,6 +43,23 @@
        <label for="name"></label><br>
 
        <div class="col-md-12">
+         
+         <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Categories
+         <span class="caret"></span></button>
+        <script id="dropdown-template" type="text/x-handlebars-template">
+
+         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+           {{#each types as |type| }}
+             <a id="headline" onclick="filterByType(this)"><li>{{type.name}}</li></a>
+
+           {{/each}}
+            <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All Results</a></li> -->
+         </ul>
+
+       </script>
+       </div>
+
           <div class="input-group">
             <input id='location' width: 500; class='form-control' placeholder="Enter a street and city" type="text" aria-describedby="basic-addon2">
           <span class="input-group-btn">
@@ -53,30 +70,19 @@
     </div>
   </div>
 
-     <div id="address_fields">
-     </div>
+    <div class="col-md-12">
+      <div id="address_fields"></div>
+    </div>
      <!-- <input type="submit"> -->
    </form>
  </div>
    <!-- <input id="pac-input" class="controls" type="text" placeholder="Search"> -->
    <div id="map"></div>
-   <div id="results"></div>
+   <div class="col-md-6">
+     <div id="results"></div>
+   </div>
+
    <div class="container">
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-  <script id="dropdown-template" type="text/x-handlebars-template">
-
-    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-      {{#each types as |type| }}
-        <a id="headline" onclick="filterByType(this)"><li>{{type.name}}</li></a>
-
-      {{/each}}
-       <!-- <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All Results</a></li> -->
-    </ul>
-
-  </script>
-  </div>
   <div id="timeline"></div>
 </div>
 <div class="col-md-12">
@@ -97,10 +103,12 @@
       </script>
 </div>
 
+
 <div class="panel-container">
- <script id="article-template" type="text/x-handlebars-template">
+  <div class="col-md-6">
+    <script id="article-template" type="text/x-handlebars-template">
    {{#each articles as |article| }}
-   <div class="panel panel-default">
+    <div class="panel panel-default">
      <div class="panel-body">
        <span>
          <h3 class="panel-title">
@@ -112,6 +120,8 @@
   {{/each}}
   </script>
  </div>
+</div>
+
 </div>
       <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">

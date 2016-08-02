@@ -33,6 +33,7 @@ $('#button').on("click", function getAjax(){
       var article_object = article_adapter(streetName);
       setLocationToMap();
    // Sets the given location to map. Function implemented in map.js
+      $("#menu1").css("display", "block");
     })
   });
 
