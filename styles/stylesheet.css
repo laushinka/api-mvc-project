@@ -7,6 +7,10 @@ html, body {
   padding: 0
 }
 
+body {
+  width: 100%;
+}
+
 #location {
   float: center;
 }
@@ -60,8 +64,9 @@ div#address_fields {
   height:80%;
   width: 50%;
   /*padding: 10 px;*/
-  float: right;
-  position: fixed;
+  /*float: right;*/
+  margin: 0 auto;
+  /*position: fixed;*/
   margin-bottom: 300px;
 }
 
@@ -192,4 +197,11 @@ g.tick{
 
 .circle{
   opacity: .7;
+}
+
+
+#search_again{
+  margin-bottom: 100px;
+  float: center; 
+
 }
