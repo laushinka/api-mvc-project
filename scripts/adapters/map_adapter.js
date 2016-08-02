@@ -2,48 +2,53 @@ var map;
 var geocoder;
 var marker;
 
-// initialize map
 function initMap(){
-// Need default latitude longitude for initial marker to exist
 	var defaultlatlong = new google.maps.LatLng(40.70512367716837, -74.0138840675354 );
 	var myOptions = {
-		center: defaultlatlong, // Example latitude longitude for initial show
+		center: defaultlatlong,
 		zoom: 15,
-		mapTypeId: google.maps.MapTypeId.ROADMAP // Example type. Can play with this later.
+		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-  // Geocoder converts addresses into latitude longitude coordinates,
-  // which allows us to place the marker on the map
   geocoder = new google.maps.Geocoder();
-  map = new google.maps.Map(document.getElementById("map"), // appends map to div tag
-  myOptions);
-	// Need this default marker so that the next marker can appear - need to debug this later
+  map = new google.maps.Map(document.getElementById("map"), myOptions);
   placeMarker(defaultlatlong);
-
   google.maps.event.addListener(map, 'click', function(event) {
-      placeMarker(event.latLng); // captures lat-long in click and passes in to placeMarker func
+      placeMarker(event.latLng);
   });
 }
 
-function placeMarker(location) { // location params is passed in from click event
-	if (marker) { // if marker already exists
-			marker.setPosition(location); //sets location to marker
-	} else {
-		marker = new google.maps.Marker({ //creates a new marker object
-				position: location,
-				map: map,
-		});
-	}
-	console.log(location.lat()); // can decide other things we want to do with this information
-	console.log(location.lng()); // same as above
-	getAddress(location); // gets address to show in text boxes
+function placeMarker(location) {
+	setOrCreateMarker(location, map)
+	printLongAndLat(location)
+	getAddress(location);
 }
 
-// For the given address the below function gets longitude and latitude.
-// And also sets the marker for that location.
+function createMarker(location, map) {
+	marker = new google.maps.Marker({
+			position: location,
+			map: map
+		});
+	return marker
+}
+
+function setOrCreateMarker(location, map) {
+	if (marker) { // if marker already exists
+		setMarker(location); //sets location to marker
+	} else {
+		createMarker(location, map)
+	}
+}
+function setMarker(location) {
+	marker.setPosition(location)
+}
+
+function printLongAndLat(location) {
+	console.log(location.lat());
+	console.log(location.lng());
+}
+
 function getLatitudeLongitude(address) {
-	// If adress is not supplied, use default
 	var address = address || 'New York';
-	// Initialize the Geocoder
 	geocoder = new google.maps.Geocoder();
 	if (geocoder) {
 		geocoder.geocode({ 'address': address},
@@ -52,18 +57,10 @@ function getLatitudeLongitude(address) {
 				var lat = results[0].geometry.location.lat();
 				var long = results[0].geometry.location.lng();
 				var location  = new google.maps.LatLng(lat, long);
-				if (marker) { // if marker already exists
-					marker.setPosition(location); //sets location to marker
-				} else {
-					marker = new google.maps.Marker({ //creates a new marker object - somehow this one isn't working
-							position: location,
-							map: map,
-					});
-				}
+				setOrCreateMarker(location, map)
 				getAddress(new google.maps.LatLng(lat, long));
 				map.panTo(location);
-				console.log(lat);
-				console.log(long);
+				printLongAndLat(location)
 			}
 		});
 	}
@@ -73,24 +70,20 @@ function getAddress(latLng) {
 	geocoder.geocode( {'latLng': latLng},
 	function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			if (results.length > 0) { // if address exists
+			if (results.length > 0) {
 				var fulladdress = results[0].formatted_address;
 				var addrArr = fulladdress.split(",");
 				var country = results[results.length - 1].formatted_address
-				// addrArr = ["43 Broad St", " New York", " NY 10004", " USA"]
 				store.locations = []
 				newAddress(addrArr)
-
-				 $("#location").val(addrArr.slice(0, addrArr.length)); // sets #location value
+				$("#location").val(addrArr.slice(0, addrArr.length));
 				if (countryList.includes(country)) {
 					$("#location").val(country);
-				}
-			} else { // if no address is available
+					}
+				} else {
 					$("#address_name").val("No results");
-			}
-		}
-		else {
-			// if no location details are available
+				}
+			} else {
 			alert("Unable to process the request " + status);
 		}
 	});
