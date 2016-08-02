@@ -1,17 +1,19 @@
 var map;
 var geocoder;
 var marker;
-
-function initMap(){
-	var defaultlatlong = new google.maps.LatLng(40.70512367716837, -74.0138840675354 );
-	var myOptions = {
-		center: defaultlatlong,
+function myOptions(defaultLatLong) {
+	return {
+		center: defaultLatLong,
 		zoom: 15,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
+}
+
+function initMap(){
+	var defaultLatLong = new google.maps.LatLng(40.70512367716837, -74.0138840675354 );
   geocoder = new google.maps.Geocoder();
-  map = new google.maps.Map(document.getElementById("map"), myOptions);
-  placeMarker(defaultlatlong);
+  map = new google.maps.Map(document.getElementById("map"), myOptions(defaultLatLong));
+  placeMarker(defaultLatLong);
   google.maps.event.addListener(map, 'click', function(event) {
       placeMarker(event.latLng);
   });
@@ -77,16 +79,20 @@ function getAddress(latLng) {
 				store.locations = []
 				newAddress(addrArr)
 				$("#location").val(addrArr.slice(0, addrArr.length));
-				if (countryList.includes(country)) {
-					$("#location").val(country);
-					}
-				} else {
-					$("#address_name").val("No results");
-				}
+				checkCountryList(country)
 			} else {
 			alert("Unable to process the request " + status);
+			}
 		}
-	});
+	})
+};
+
+function checkCountryList(country) {
+	if (countryList.includes(country)) {
+		$("#location").val(country);
+		} else {
+		$("#address_name").val("No results");
+	}
 }
 
 function newAddress(addrArr){
