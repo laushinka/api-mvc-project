@@ -193,3 +193,10 @@ g.tick{
 .circle{
   opacity: .7;
 }
+
+
+#search_again{
+  margin-bottom: 100px;
+  float: center; 
+
+}
