@@ -41,7 +41,8 @@ $('#button').on("click", function getAjax(){
       function render(){
          let string = $('#article-template').html();
          let template = Handlebars.compile(string);
-         var htmlString = template({articles: store.articles})
+         var htmlString = template({articles: store.articles.sort(function(a, b){if(a.date > b.date){return 1;} if (a.date < b.date){return -1;}return 0})})
+         debugger;
          store.articles = []
          $('#results').empty();
          $('#results').append(htmlString);
