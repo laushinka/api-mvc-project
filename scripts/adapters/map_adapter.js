@@ -75,14 +75,14 @@ function getAddress(latLng) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			if (results.length > 0) { // if address exists
 				var fulladdress = results[0].formatted_address;
-				var addr_arr = fulladdress.split(",");
+				var addrArr = fulladdress.split(",");
 				var country = results[results.length - 1].formatted_address
-				// addr_arr = ["43 Broad St", " New York", " NY 10004", " USA"]
+				// addrArr = ["43 Broad St", " New York", " NY 10004", " USA"]
 				store.locations = []
-				new_address(addr_arr)
+				newAddress(addrArr)
 
-				 $("#location").val(addr_arr.slice(0, addr_arr.length)); // sets #location value
-				if (country_list.includes(country)) {
+				 $("#location").val(addrArr.slice(0, addrArr.length)); // sets #location value
+				if (countryList.includes(country)) {
 					$("#location").val(country);
 				}
 			} else { // if no address is available
@@ -96,9 +96,9 @@ function getAddress(latLng) {
 	});
 }
 
-function new_address(addr_arr){
-  new Location(addr_arr[0], addressFieldExtender(addr_arr[0].split(' ').slice(1).join(' ')),
-  addr_arr[1], states[addr_arr[2].split(" ")[1]], addr_arr[3])
+function newAddress(addrArr){
+  new Location(addrArr[0], addressFieldExtender(addrArr[0].split(' ').slice(1).join(' ')),
+  addrArr[1], states[addrArr[2].split(" ")[1]], addrArr[3])
 }
 
 function setLocationToMap(){
