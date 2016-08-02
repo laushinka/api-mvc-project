@@ -25,13 +25,18 @@ function updateCSS() {
 function extractSearchTerm(userInput) {
   if(userInput.includes(",")){
   var streetName = userInput.split(', ')[0]
-    if(Number(streetName.split(" ")[0]) !== NaN ){
-      streetName = streetName.split(" ").slice(1, streetName.length).join(" ")
-    } else {
-    streetName = streetName.join(" ")
-    }
+  removeBuildingNumber(streetName);
   } else {
     var streetName = userInput
+  }
+  return streetName
+}
+
+function removeBuildingNumber(streetName) {
+  if(Number(streetName.split(" ")[0]) !== NaN ){
+    streetName = streetName.split(" ").slice(1, streetName.length).join(" ")
+  } else {
+  streetName = streetName.join(" ")
   }
   return streetName
 }
