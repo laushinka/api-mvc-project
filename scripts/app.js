@@ -8,27 +8,20 @@ $(function(){
 $('#button').on("click", function getAjax(){
       event.preventDefault();
       store.types = []
-      var user_input = $('#location').val()
-      if (user_input.split(" ").length > 2) {
-        user_input = addressFieldExtender(user_input);
+      var userInput = $('#location').val()
+      if (userInput.split(" ").length > 2) {
+        userInput = addressFieldExtender(userInput);
       }
-
-      if(user_input.includes(",")){
-      var streetName = user_input.split(', ')[0]
-
+      if(userInput.includes(",")){
+      var streetName = userInput.split(', ')[0]
       if(Number(streetName.split(" ")[0]) !== NaN ){
         streetName = streetName.split(" ").slice(1, streetName.length).join(" ")
-      }
-      else{
+      } else {
         streetName = streetName.join(" ")
       }
-
+    } else{
+      var streetName = userInput
     }
-    else{
-      var streetName = user_input
-    }
-
-      // .join(' ');
       var article_object = submittedArticleAdapter(streetName);
       setLocationToMap();
    // Sets the given location to map. Function implemented in map_adapter.js
@@ -47,17 +40,17 @@ $('#button').on("click", function getAjax(){
          $('#results').append(htmlString);
     }
 
-    function dropdown_render(){
+    function dropdownRender(){
        var stuff = $('#dropdown-template').html();
        var template = Handlebars.compile(stuff);
        var htmlString = template({types: store.types});
-      $('.dropdown-menu').empty();
+       $('.dropdown-menu').empty();
        $('.dropdown').append(htmlString);
     }
 
 
 
-    function location_render(){
+    function locationRender(){
        let string = $('#location-template').html();
        let template = Handlebars.compile(string);
        var htmlString = template(store.locations[0])

@@ -55,6 +55,6 @@ function addToType(newArticle) {
 function renderAll(){
   timeline();
   render();
-  location_render();
-  dropdown_render();
+  locationRender();
+  dropdownRender();
 }
