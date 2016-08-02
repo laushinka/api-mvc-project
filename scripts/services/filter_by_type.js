@@ -7,11 +7,3 @@ function filterByType(type){
   }
   articleByTypeRender(articleArr)
 }
-
-function articleByTypeRender(array) {
-  let string = $('#article-template').html();
-  let template = Handlebars.compile(string);
-  var htmlString = template({articles: array})
-  $('#results').empty();
-  $('#results').append(htmlString);
-};

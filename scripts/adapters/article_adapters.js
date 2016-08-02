@@ -6,11 +6,7 @@ function submittedArticleAdapter(searchTerm){
   }).done(function( data ) {
     var articles = data.response.docs
     articles.forEach(function(article){
-      var newDate = new Date(article.pub_date)
-      var formattedDate = Date.prototype.getFullYear.call(newDate)
-      var newArticle = new Article(article.headline.main.split(";")[0], article.lead_paragraph,
-        formattedDate, article.web_url, searchTerm, article.news_desk)
-        addToType(newArticle)
+      articleObjectCreator(article, searchTerm)
         })
     renderAll();
   })
@@ -25,32 +21,21 @@ function linkedArticleAdapter(searchTerm){
   }).done(function( data ) {
     var articles = data.response.docs
     articles.forEach(function(article){
-      var newDate = new Date(article.pub_date)
-      var formattedDate = Date.prototype.getFullYear.call(newDate)
-      var newArticle = new Article(article.headline.main.split(";")[0], article.lead_paragraph,
-      formattedDate, article.web_url, searchTerm, article.news_desk)
-      addToType(newArticle)
+      articleObjectCreator(article, searchTerm)
       })
     renderAll();
   })
 }
 
-function addToType(newArticle) {
-  var typeName =  newArticle.type
-  var newName = checkTypeValue(typeName)
-  function findByTypeName(type) {
-    return type.name === newName
+
+function articleObjectCreator(article, searchTerm){
+  var newDate = new Date(article.pub_date)
+  var formattedDate = Date.prototype.getFullYear.call(newDate)
+  var newArticle = new Article(article.headline.main.split(";")[0], article.lead_paragraph,
+  formattedDate, article.web_url, searchTerm, article.news_desk)
+  addToType(newArticle)
   }
-  var type = store.types.find(findByTypeName)
-  if (type) {
-    newArticle.type
-    type.articles.push(newArticle)
-  } else {
-    new Type(newArticle.type)
-    var type = store.types.find(findByTypeName)
-    type.articles.push(newArticle)
-  }
-}
+
 
 function renderAll(){
   timeline();
