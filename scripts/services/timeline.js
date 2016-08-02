@@ -19,7 +19,7 @@ var dataset = store.articles;
 var scale = d3.scaleLinear().domain([
   d3.min(dataset, function(d) { return d.date; }),
   d3.max(dataset, function(d) { return d.date; })])
-                    .range([0 + padding, w - padding]);
+                    .range([0 + 100, w - 100]);
 
 var circles = svg.selectAll("circle")  // <-- No longer "rect"
    .data(dataset)
@@ -29,14 +29,14 @@ var circles = svg.selectAll("circle")  // <-- No longer "rect"
    .on("mouseover", function(d, i) {
 
 					//Get this bar's x/y values, then augment for the tooltip
-					var xPosition = parseFloat(d3.select(this).attr("cx")) + 30;
+					var xPosition = parseFloat(d3.select(this).attr("cx")) + 15;
 					var yPosition = parseFloat(d3.select(this).attr("cy"));
 
 					//Create the tooltip label
 					svg.append("text")
 					   .attr("id", "tooltip")
 					   .attr("x", xPosition)
-					   .attr("y", yPosition + 20 + i*14)
+					   .attr("y", yPosition + 20 + i*15)
 					   .attr("text-anchor", "middle")
 					   .attr("font-family", "sans-serif")
 					   .attr("font-size", "11px")

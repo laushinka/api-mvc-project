@@ -117,46 +117,57 @@ div#address_fields {
 #timeline{
   width: 300;
   height: 300;
-  position: relative;
+  padding-top: 400px;
   margin-top: 80;
   margin-left: 80;
+  font-weight: normal;
 }
 
 
 .axis line {
     fill: none;
-    stroke: black;
+    stroke: white;
     shape-rendering: crispEdges;
-    color: black;
+    color: white;
 }
 
 .axis path{
   fill: none;
-  stroke: black;
+  stroke: white;
   shape-rendering: crispEdges;
-  color: black;
+  color: white;
 
 }
 
 .axis text {
-    font-family: sans-serif;
+    font-family: times;
     font-size: 14px;
+    fill: white;
 }
 
 g.tick{
-  color: black;
-  fill: black:
+  color: white;
+  fill: white:
 
 }
 
 #tooltip{
-  font-size: 14px;
+  font-size: 15px;
   color: green;
+  font-family: times;
+    text-decoration: none;
   font-style: italic;
   bottom: 0;
 
 }
 
+#tooltip a{
+    font-weight: normal;
+  fill: white;
+
+}
+
+
 .circle{
-  opacity: .7; 
+  opacity: .7;
 }
