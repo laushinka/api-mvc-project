@@ -18,6 +18,7 @@ html, body {
 div.panel.panel-default {
   background-color: white;
   width: 40em;
+  margin-top: 3em;
 }
 
 div.panel-container {
@@ -40,9 +41,8 @@ div#address_fields {
   width: 50%;
   /*padding: 10 px;*/
   float: right;
+  position: fixed;
   margin-top: 3em;
-  /*margin-left: 10 px;
-  margin-right: 100 px;*/
 }
 
 #results{
@@ -110,4 +110,6 @@ div#address_fields {
 #address_fields{
   font-size: 16px;
   text-align: center;
+  font: white;
+  position: absolute;
 }
