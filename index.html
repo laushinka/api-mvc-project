@@ -1,112 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>What Happened In My Hood?</title>
-<meta name="viewport" content="initial-scale=1.0">
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="styles/stylesheet.css" media="screen" />
-  <meta charset="UTF-8">
-  <title>API MVC</title>
-  <script src="lib/jquery-1.11.3.js"></script>
+  <head>
+    <title>What Happened In My Hood?</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles/stylesheet.css" media="screen" />
+    <script src="lib/jquery-1.11.3.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
-  <script src="lib/handlebars.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap"
-  async defer></script>
-  <script src="lib/data.js"></script>
-  <script src="scripts/app.js"></script>
-  <script src="scripts/models/article.js"></script>
-  <script src="scripts/services/rendering_helper.js"></script>
-  <script src="scripts/services/times_query_helper.js"></script>
-  <script src="scripts/models/location.js"></script>
-  <script src="scripts/services/address_field_extender.js"></script>
-  <script src="scripts/services/filter_by_type.js"></script>
-  <script src="scripts/services/dropdown_helper.js"></script>
-  <script src="scripts/services/timeline.js"></script>
-  <script src="scripts/adapters/map_adapter.js"></script>
-  <script src="scripts/models/type.js"></script>
-  <script src="scripts/adapters/article_adapters.js"></script>
-</head>
-<body background="styles/congruent_outline.png">
-<div class="row">
-  <div align= "center">
-      <img id="times" src="styles/alt-times-and-place.png"/>
-   <form action="">
-     <div align="center" class='name'>
-       <label for="name"></label><br>
-       <div class="col-md-12">
-          <div class="input-group">
-            <input id='location' width: 500; class='form-control' placeholder="Enter a street and city" type="text" aria-describedby="basic-addon2">
-          <span class="input-group-btn">
-            <button id = 'button' class="btn btn-default" type="button">Go!</button>
-          </span>
+    <script src="lib/handlebars.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap"
+    async defer></script>
+    <script src="lib/data.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/models/article.js"></script>
+    <script src="scripts/services/rendering_helper.js"></script>
+    <script src="scripts/services/times_query_helper.js"></script>
+    <script src="scripts/models/location.js"></script>
+    <script src="scripts/services/address_field_extender.js"></script>
+    <script src="scripts/services/filter_by_type.js"></script>
+    <script src="scripts/services/dropdown_helper.js"></script>
+    <script src="scripts/services/timeline.js"></script>
+    <script src="scripts/adapters/map_adapter.js"></script>
+    <script src="scripts/models/type.js"></script>
+    <script src="scripts/adapters/article_adapters.js"></script>
+  </head>
+  <body background="styles/congruent_outline.png">
+    <div class="row">
+      <div align= "center">
+        <img id="times" src="styles/alt-times-and-place.png"/>
+        <form action="">
+          <div align="center" class='name'>
+          <label for="name"></label><br>
+            <div class="col-md-12">
+              <div class="input-group">
+                <input id='location' width: 500; class='form-control' placeholder="Enter a street and city" type="text" aria-describedby="basic-addon2">
+                <span class="input-group-btn">
+                  <button id = 'button' class="btn btn-default" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          <div class="col-md-12">
+            <div id="address_fields"></div>
+              <a class="btn btn-primary" href="#anchor" id="timeline-menu" role="button">Timeline View</a>
+                <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Categories
+                <span class="caret"></span></button>
+                  <script id="dropdown-template" type="text/x-handlebars-template">
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      {{#each types as |type| }}
+                        <a id="headline" onclick="filterByType(this)"><li>{{type.name}}</li></a>
+                      {{/each}}
+                    </ul>
+                  </script>
+                </div>
+            </div>
+          </div>
         </div>
-      </div>
-       <div class="col-md-12">
-               <div id="address_fields"></div>
-         <a class="btn btn-primary" href="#anchor" id="timeline-menu" role="button">Timeline View</a>
-         <div class="dropdown">
-         <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Categories
-         <span class="caret"></span></button>
-        <script id="dropdown-template" type="text/x-handlebars-template">
-         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-           {{#each types as |type| }}
-             <a id="headline" onclick="filterByType(this)"><li>{{type.name}}</li></a>
-           {{/each}}
-         </ul>
-       </script>
-       </div>
-     </div>
+      </form>
     </div>
-  </div>
-   </form>
- </div>
-   <div id="map"></div>
+  <div id="map"></div>
    <div class="col-xs-6">
      <div id="results"></div>
    </div>
  </div>
-<div class="container">
+ <div class="container">
   <div id="timeline"></div>
-  <div id="anchor"></div>
-</div>
-<div class="col-md-12">
-      <script id="location-template" type="text/x-handlebars-template">
-        <!-- <p>Search By:</p> -->
-        {{#if building}}
-          <a href="#" data-repo="{{building}}" onclick="linkedArticleAdapter(this)">{{building}}</a>
-        {{/if}}
-        {{#if city}}
-          <a href="#" data-repo="{{city}}" onclick="linkedArticleAdapter(this)">{{city}}</a>
-        {{/if}}
-        {{#if state}}
-         <a href="#" data-repo="{{state}}" onclick="linkedArticleAdapter(this)">{{state}}</a>
-        {{/if}}
-        {{#if country}}
-         <a href="#" data-repo="{{country}}" onclick="linkedArticleAdapter(this)">{{country}}</a>
-        {{/if}}
-      </script>
-</div>
-<div class="panel-container">
-  <div class="col-md-6">
-    <script id="article-template" type="text/x-handlebars-template">
-   {{#each articles as |article| }}
-    <div class="panel panel-default">
-     <div class="panel-body">
-       <span>
-         <h3 class="panel-title">
-          {{article.date}} |
-          <a id="headline" target="_blank" href="{{article.url}}">{{article.headline}}</a>
-         </h3>
-     </div>
+    <div id="anchor"></div>
   </div>
-  {{/each}}
+<div class="col-md-12">
+  <script id="location-template" type="text/x-handlebars-template">
+    {{#if building}}
+      <a href="#" data-repo="{{building}}" onclick="linkedArticleAdapter(this)">{{building}}</a>
+    {{/if}}
+    {{#if city}}
+      <a href="#" data-repo="{{city}}" onclick="linkedArticleAdapter(this)">{{city}}</a>
+    {{/if}}
+    {{#if state}}
+      <a href="#" data-repo="{{state}}" onclick="linkedArticleAdapter(this)">{{state}}</a>
+    {{/if}}
+    {{#if country}}
+      <a href="#" data-repo="{{country}}" onclick="linkedArticleAdapter(this)">{{country}}</a>
+    {{/if}}
   </script>
- </div>
 </div>
-</div>
-<a class="btn btn-primary" href="#" id="search_again" role="button">Search Again</a>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    </body>
+  <div class="panel-container">
+    <div class="col-md-6">
+      <script id="article-template" type="text/x-handlebars-template">
+        {{#each articles as |article| }}
+      <div class="panel panel-default">
+       <div class="panel-body">
+         <span>
+           <h3 class="panel-title">
+             {{article.date}} |
+            <a id="headline" target="_blank" href="{{article.url}}">{{article.headline}}</a>
+          </h3>
+        </div>
+      </div>
+        {{/each}}
+    </script>
+   </div>
+  </div>
+  <a class="btn btn-primary" href="#" id="search_again" role="button">Search Again</a>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
 </html>

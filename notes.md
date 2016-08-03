@@ -1,5 +1,4 @@
 TO DO LIST
 
 1. indentations in html
-2. refactor map_adapter
-3. refactor timeline.js
+2. refactor map_adapter any more???
