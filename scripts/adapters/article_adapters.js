@@ -26,20 +26,3 @@ function linkedArticleAdapter(searchTerm){
     renderAll();
   })
 }
-
-
-function articleObjectCreator(article, searchTerm){
-  var newDate = new Date(article.pub_date)
-  var formattedDate = Date.prototype.getFullYear.call(newDate)
-  var newArticle = new Article(article.headline.main.split(";")[0], article.lead_paragraph,
-  formattedDate, article.web_url, searchTerm, article.news_desk)
-  addToType(newArticle)
-  }
-
-
-function renderAll(){
-  timeline();
-  render();
-  locationRender();
-  dropdownRender();
-}

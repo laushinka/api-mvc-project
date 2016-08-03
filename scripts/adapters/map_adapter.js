@@ -1,7 +1,8 @@
 var map;
 var geocoder;
 var marker;
-function myOptions(defaultLatLong) {
+
+function setDefaultView(defaultLatLong) {
 	return {
 		center: defaultLatLong,
 		zoom: 15,
@@ -12,7 +13,7 @@ function myOptions(defaultLatLong) {
 function initMap(){
 	var defaultLatLong = new google.maps.LatLng(40.70512367716837, -74.0138840675354 );
   geocoder = new google.maps.Geocoder();
-  map = new google.maps.Map(document.getElementById("map"), myOptions(defaultLatLong));
+  map = new google.maps.Map(document.getElementById("map"), setDefaultView(defaultLatLong));
   placeMarker(defaultLatLong);
   google.maps.event.addListener(map, 'click', function(event) {
       placeMarker(event.latLng);
@@ -34,12 +35,13 @@ function createMarker(location, map) {
 }
 
 function setOrCreateMarker(location, map) {
-	if (marker) { // if marker already exists
-		setMarker(location); //sets location to marker
+	if (marker) {
+		setMarker(location);
 	} else {
 		createMarker(location, map)
 	}
 }
+
 function setMarker(location) {
 	marker.setPosition(location)
 }
@@ -51,7 +53,6 @@ function printLongAndLat(location) {
 
 function getLatitudeLongitude(address) {
 	var address = address || 'New York';
-	geocoder = new google.maps.Geocoder();
 	if (geocoder) {
 		geocoder.geocode({ 'address': address},
 			function (results, status) {

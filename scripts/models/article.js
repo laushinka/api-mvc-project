@@ -38,7 +38,6 @@ function addToType(newArticle) {
 
 function findOrCreateType(type, newArticle, findByTypeName){
   if (type) {
-    newArticle.type
     type.articles.push(newArticle)
   } else {
     new Type(newArticle.type)
