@@ -1,7 +1,10 @@
 function timeline(){
   $('#timeline').empty();
+  $('#timeline-detail').empty();
+  $("#timeline-detail").css("display", "none");
+
   var w = 1100;
-  var h = 500;
+  var h = 150;
   var padding = 40;
   var dataset = store.articles;
   var svg = appendSvg(w, h)
@@ -11,6 +14,17 @@ function timeline(){
   var circles = placeCircles(svg, dataset)
   styleCircles(circles, scale)
   createLabel(circles, svg)
+  circles.on("click", function(d, i){
+    articleDetailsRender(d)
+      $("#timeline-detail").css("display", "block");
+  })
+  circles.on("mouseover", function(d, i){
+    articleDetailsRender(d)
+      $("#timeline-detail").css("display", "block");
+  })
+
+  $("svg").attr("id", "svg");
+  $("#button").attr("onclick", "document.location.href = '#svg'");
 }
 
 
@@ -37,13 +51,14 @@ function placeCircles(svg, dataset){
      .enter()
      .append("circle")
      .attr("class", "circle")
+     .attr("id", function(d, i){return i});
 }
 
 function createLabel(circles, svg){
   circles.on("mouseover", function(d, i) {
     var xPosition = parseFloat(d3.select(this).attr("cx")) + 15;
     var yPosition = parseFloat(d3.select(this).attr("cy"));
-    hoverLabelBuilder(svg, d, i, xPosition, yPosition)
+    // hoverLabelBuilder(svg, d, i, xPosition, yPosition)
   })
 }
 
@@ -59,7 +74,7 @@ function hoverLabelBuilder(svg, d, i, xPosition, yPosition){
      .attr("fill", "black")
      .html(`<a target="_blank" href=${d.url}>${d.headline}</a>`)
    }
-   
+
 function buildAxis(svg, axis){
   return svg.append("svg")
     .classed("axis", true)
@@ -69,7 +84,8 @@ function buildAxis(svg, axis){
 }
 
 function styleCircles(circles, scale){
-    circles.attr("cy", function(d) {
+    circles.transition()
+   .duration(500).attr("cy", function(d) {
       return 80;
     })
       .attr("cx", function(d) {

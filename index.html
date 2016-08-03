@@ -37,7 +37,7 @@
           <div class="input-group">
             <input id='location' width: 500; class='form-control' placeholder="Enter a street and city" type="text" aria-describedby="basic-addon2">
           <span class="input-group-btn">
-            <button id = 'button' class="btn btn-default" type="button">Go!</button>
+            <button id = 'button' onclick="document.location.href = '#page_bottom'" class="btn btn-default" type="button">Go!</button>
           </span>
         </div>
       </div>
@@ -67,8 +67,23 @@
  </div>
 <div class="container">
   <div id="timeline"></div>
-  <div id="anchor"></div>
 </div>
+     <div id="anchor"></div>
+     <!-- <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"> -->
+  <div id="timeline-detail">
+</div>
+<!-- </span> -->
+
+    <script id="article-details-template" type="text/x-handlebars-template">
+       <!-- <span> -->
+         <h2>
+          <a id="details-headline" target="_blank" href="{{url}}">{{headline}}</a>
+        </h2>
+          <p> {{fullDate}} </p>
+          <br>
+          <h4> {{teaser}}</h4>
+
+    </script>
 <div class="col-md-12">
       <script id="location-template" type="text/x-handlebars-template">
         <!-- <p>Search By:</p> -->
@@ -103,8 +118,11 @@
   </script>
  </div>
 </div>
+
+
 </div>
 <a class="btn btn-primary" href="#" id="search_again" role="button">Search Again</a>
+<div id="page_bottom"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

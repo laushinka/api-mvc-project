@@ -29,6 +29,14 @@ function locationRender(){
    $('#results').append(htmlString);
  };
 
+ function articleDetailsRender(object) {
+   let string = $('#article-details-template').html();
+   let template = Handlebars.compile(string);
+   var htmlString = template(object)
+   $('#timeline-detail').empty();
+   $('#timeline-detail').append(htmlString);
+ };
+
 
  function renderAll(){
    timeline();
