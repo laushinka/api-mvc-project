@@ -16,7 +16,7 @@ function removeBuildingNumber(streetName) {
   //replace if(Number(streetName.split(" ")[0]) !== NaN ) becuase it returned true and false...
   var N = 100000;
   numArray = Array.apply(null, {length: N}).map(Number.call, Number)
-  if(numArray.includes(Number(streetName.split(" ")[0])) === true){
+  if(numArray.includes(Number(streetName.split(" ")[0].split("-")[0])) === true){
     return streetName.split(" ").slice(1, streetName.length).join(" ")
   } else {
     return streetName

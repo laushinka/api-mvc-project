@@ -9,7 +9,9 @@
   <title>API MVC</title>
   <script src="lib/jquery-1.11.3.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="lib/bootstrap.js"></script>
   <script src="lib/handlebars.js"></script>
+    <script src="lib/carousel.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzxUugrm5r3ojYpzumr2nYbRfbr88_-co&callback=initMap"
   async defer></script>
   <script src="lib/data.js"></script>
@@ -121,10 +123,41 @@
 
 
 </div>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="6"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="7"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="8"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="9"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="10"></li>
+  </ul>
+  <div id="carousel-holder">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active"></div>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="icon-prev" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="icon-next" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 <a class="btn btn-primary" href="#" id="search_again" role="button">Search Again</a>
 <div id="page_bottom"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     </body>
 </html>

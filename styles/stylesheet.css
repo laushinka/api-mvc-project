@@ -211,8 +211,8 @@ g.tick{
   color: white;
   margin: auto;
   background-color: black;
-  padding-right: 40px;
-    padding-left: 40px;
+  padding-right: 50px;
+    padding-left: 50px;
       padding-bottom: 40px;
         padding-top: 20px;
   border-radius: 20px;
@@ -227,7 +227,7 @@ g.tick{
     color: white;
 }
 
-
+.carousel-indicators li { visibility: hidden; }
 
 #timeline-detail h4{
   line-height: 1.5;
@@ -235,6 +235,37 @@ g.tick{
   color: white;
 }
 
+#carousel-example-generic{
+  width: 50%;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.item{
+  height: 400px;
+  font-style: italic;
+color: white;
+margin: auto;
+background-color: black;
+padding-right: 17%;
+padding-left: 17%;
+  padding-bottom: 40px;
+    padding-top: 20px;
+    /*border-radius: 20px;*/
+display: none;
+width: 100%;
+opacity: .6;
+font-family: arial;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none !important;
+}
+
 #timeline-detail span{
       line-height: 150px;
+}
+
+.left carousel-control{
+  padding-right: 1px;
 }

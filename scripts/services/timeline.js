@@ -6,7 +6,7 @@ function timeline(){
   var w = 1100;
   var h = 150;
   var padding = 40;
-  var dataset = store.articles;
+  var dataset = store.articles.sort(function(a, b){if(a.date > b.date){return 1;} if (a.date < b.date){return -1;}return 0});
   var svg = appendSvg(w, h)
   var scale = buildScale(dataset, w)
   var axis = d3.axisBottom(scale).tickFormat(d3.format("d"));
@@ -14,14 +14,17 @@ function timeline(){
   var circles = placeCircles(svg, dataset)
   styleCircles(circles, scale)
   createLabel(circles, svg)
-  circles.on("click", function(d, i){
-    articleDetailsRender(d)
-      $("#timeline-detail").css("display", "block");
-  })
   circles.on("mouseover", function(d, i){
-    articleDetailsRender(d)
-      $("#timeline-detail").css("display", "block");
-  })
+    $('.carousel').carousel(i+1)
+    })
+  // circles.on("click", function(d, i){
+  //   articleDetailsRender(d)
+  //     $("#timeline-detail").css("display", "block");
+  // })
+  // circles.on("mouseover", function(d, i){
+  //   articleDetailsRender(d)
+  //     $("#timeline-detail").css("display", "block");
+  // })
 
   $("svg").attr("id", "svg");
   $("#button").attr("onclick", "document.location.href = '#svg'");
