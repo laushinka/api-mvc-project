@@ -71,9 +71,9 @@ div#address_fields {
 }
 
 #results{
+  width: 90%;
   font-size: 13px;
   font-family: sans-serif;
-  width: 40%
   margin-left: 20px;
   /*height: 100%;*/
   float: left;
@@ -145,6 +145,7 @@ div#address_fields {
 }
 
 #timeline{
+  clear: both; 
   width: 300;
   height: 300;
   margin-left: 80;
@@ -202,7 +203,9 @@ g.tick{
 
 #search_again{
   margin-bottom: 400px;
-  float: center;
+  left: 45%;
+  margin-top: 50px;
+  position: absolute;
 
 }
 
